@@ -1,5 +1,5 @@
 <h1 style="text-align: left;">
-  <img src="rnetbench-cli/assets/rnetbench.svg" width="90" style="vertical-align: middle; margin-right: 8px;" alt="rNetBench Logo"/>
+  <img src="assets/rnetbench.svg" width="90" style="vertical-align: middle; margin-right: 8px;" alt="rNetBench Logo"/>
   rNetBench
 </h1>
 
@@ -31,64 +31,40 @@ Even in its early versions, the project focuses on:
 
 ---
 
-## 🆕 News in version v0.1.2
+## 🆕 News in v0.1.5
 
-### 🔧 Fixed
-
-- Replaced **OpenSSL (native-tls)** with **Rustls** in `rnetbench-core` to improve portability and eliminate TLS build failures on
-  32-bit Linux (`i686-unknown-linux-gnu`).
-- Removed all system-level OpenSSL dependencies during build and runtime.
-- Stabilized the multi-platform CI pipeline by removing the need for OpenSSL libraries across all targets.
-
-### 🚀 Improved
-
-- Smaller and more secure binaries thanks to Rustls' memory-safe TLS backend.
-- Faster CI builds due to removal of `libssl-dev`, `pkg-config`, and related 32-bit dependencies.
-- Updated README requirements to reflect the TLS backend change.
+- The entire project has been **refactored into a single-crate design** (removed the previous workspace layout).
+- All core benchmarking modules have been moved under `src/`.
+- CLI entry point unified into a single `main.rs`.
+- Improved packaging compatibility for `.deb`, `.zip`, and `.tar.gz` release artifacts.
+- Updated CI workflows for multi-platform builds.
+- Updated asset structure, including new icons for Windows and Linux desktop environments.
 
 ---
 
-## 🆕 News in version v0.1.1
+## 🚀 Features
 
-Version **v0.1.1** introduces the first complete automation layer for assets, packaging, and CI/CD.
+### Implemented
 
-### ✔ Full icon pipeline
+- Single-stream **download benchmark**
+- Throughput sampling (periodic)
+- Average & peak Mbps calculation
+- Custom User-Agent & robust HTTP client setup
+- Cross-platform CLI (Windows, macOS, Linux)
+- MIT licensed & open source
+- Support for packaging into `.deb` + zipped binaries
 
-- Added a new SVG/PNG application icon specifically designed for rNetBench
-- Automatic generation of multi-size PNG icons (1024 → 16 px) via:
-    - `generate_icons.ps1`
-    - `generate_icons.sh`
-- Automatic generation of Windows `.ico` via:
-    - `generate_ico.ps1`
-    - `generate_ico.sh`
-- Windows executable now embeds the icon through `build.rs` + `winresource`
-- Debian packages now include icons under:
-  ```bash
-  /usr/share/icons/hicolor/<size>/apps/rnetbench.png
-  ```
+### Planned
 
-### ✔ New GitHub CI/CD workflows
+- Multi-stream download benchmark
+- Upload benchmark
+- Latency & jitter (HTTP + optional ICMP)
+- JSON output
+- Local result history database
+- Self-hosted benchmark server (`rnetbench-server`)
+- Plugin-based architecture for test profiles
 
-Two workflows were added under `.github/workflows/`:
-
-- **`rust.yml`** → builds and tests the workspace on all platforms
-- **`ci.yml`** → produces release artifacts (ZIP, TAR.GZ, DEB), generates SHA256 checksums and GPG signatures, and
-  automatically creates GitHub Releases
-
-### ✔ dev_tools submodule improvements
-
-The `dev_tools` repository now includes:
-
-- Unified ImageMagick wrappers (`magick_tools.*`)
-- Cross-platform icon generators (`generate_icons.*`, `generate_ico.*`)
-- Parameter naming aligned between PowerShell and Bash (`--input-dir`, `--output-dir`, `--input-file`, `--sizes`,
-  `--verbose`, `--magick-path`, `--help`)
-
-### ✔ Other improvements
-
-- Updated project structure to better support asset management
-- Ensured consistent PNG naming + output directories
-- README and CHANGELOG updated accordingly
+See the **ROADMAP** and **CHANGELOG.md** for future milestones.
 
 ---
 
@@ -143,28 +119,32 @@ Peak:       45.87 Mbit/s
 rNetBench/
 ├── CHANGELOG.md
 ├── README.md
+├── build.rs
 ├── Cargo.toml
+├── LICENSE
 │
-├── .github/
-│   └── workflows/
-│       ├── rust.yml           # Build & test pipeline
-│       └── ci.yml             # Packaging, signing & multi-platform releases
+├── src/
+│   ├── lib.rs
+│   ├── main.rs
+│   ├── config.rs
+│   ├── download.rs
+│   ├── model.rs
+│   ├── ping.rs
+│   ├── stats.rs
+│   ├── upload.rs
 │
-├── rnetbench-core/
-│   ├── Cargo.toml
-│   └── src/
-│       ├── lib.rs
-│       ├── model.rs
-│       ├── download.rs
-│       ├── upload.rs
-│       ├── ping.rs
-│       ├── stats.rs
-│       └── config.rs
-│
-├── rnetbench-cli/
-    ├── Cargo.toml
-    ├── build.rs               # Windows icon embed
-    └── assets/                # SVG, PNG set, ICO
+└── assets/
+    ├── rnetbench.svg
+    ├── rnetbench.ico
+    ├── rnetbench.png
+    ├── rnetbench_1024.png
+    ├── rnetbench_512.png
+    ├── rnetbench_256.png
+    ├── rnetbench_128.png
+    ├── rnetbench_64.png
+    ├── rnetbench_48.png
+    ├── rnetbench_32.png
+    └── rnetbench_16.png
 ```
 
 ---
