@@ -54,16 +54,9 @@ jobs:
       # -------------------------
       - name: Extract version (Unix)
         if: matrix.os != 'windows-latest'
-        id: extract_version_unix
         shell: bash
         run: |
-          VERSION=$(grep '^version' rnetbench-cli/Cargo.toml | head -n1 | cut -d '"' -f2)
-
-          if [ -z "$VERSION" ]; then
-            echo "ERROR: version not found in rnetbench-cli/Cargo.toml"
-            exit 1
-          fi
-
+          VERSION=$(grep '^version' Cargo.toml | cut -d '"' -f2)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       # -------------------------
@@ -71,25 +64,15 @@ jobs:
       # -------------------------
       - name: Extract version (Windows)
         if: matrix.os == 'windows-latest'
-        id: extract_version_win
         shell: pwsh
         run: |
-          $content = Get-Content rnetbench-cli/Cargo.toml
-          $VERSION = $null
-
+          $content = Get-Content Cargo.toml
           foreach ($line in $content) {
             if ($line -match '^version\s*=\s*\"(.+?)\"') {
-              $VERSION = $matches[1]
+              "VERSION=$($matches[1])" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
               break
             }
           }
-
-          if (-not $VERSION) {
-            Write-Error "ERROR: version not found in rnetbench-cli/Cargo.toml"
-            exit 1
-          }
-
-          "VERSION=$VERSION" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
       - name: Install Rust target
         run: rustup target add ${{ matrix.target }}
