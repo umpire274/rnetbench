@@ -197,6 +197,8 @@ jobs:
     name: Create GitHub Release
     needs: consolidate
     runs-on: ubuntu-latest
+    # Esegui il job di release solo nel repository principale e solo se la build è andata a buon fine
+    if: ${{ github.repository == 'umpire274/rnetbench' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -216,6 +218,7 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
+          # Usa il token integrato di GitHub Actions, che ha contents: write su questo repo
           token: ${{ github.token }}
           tag_name: v${{ steps.extract_version.outputs.version }}
           name: "v${{ steps.extract_version.outputs.version }}"
@@ -226,5 +229,3 @@ jobs:
             release_artifacts/*.deb
             release_artifacts/*.sig
             release_artifacts/*.sha256
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
