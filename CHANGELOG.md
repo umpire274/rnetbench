@@ -7,18 +7,41 @@ and this project adheres to **Semantic Versioning**.
 
 ---
 
+## [0.1.2] - 2025-11-25
+
+### 🔧 Fixed
+
+- Replaced **OpenSSL (native-tls)** with **Rustls** in `rnetbench-core` to ensure fully portable builds across all targets,
+  including `i686-unknown-linux-gnu` on GitHub Actions.
+- Removed the need for system OpenSSL libraries during CI builds.
+- Improved reliability of cross-compilation, especially for 32-bit Linux.
+- Reduced dependency footprint and improved security by relying on a memory-safe TLS backend.
+
+### 💡 Technical Notes
+
+-Updated `reqwest` to use:
+
+```toml
+default-features = false
+features = ["rustls-tls-native-roots"]
+```
+
+- Eliminated OpenSSL-specific environment variables, pkg-config lookups, and build-time dependencies.
+
+---
+
 ## [0.1.1] – 2025-01-22
 
 ### 🚀 Added
 
 - Introduced full GitHub Actions workflow:
-  - `rust.yml` for building and testing across platforms. 
-  - `ci.yml` for packaging, signing, and publishing release artifacts (tar.gz, zip, .deb, checksums, signatures).
+    - `rust.yml` for building and testing across platforms.
+    - `ci.yml` for packaging, signing, and publishing release artifacts (tar.gz, zip, .deb, checksums, signatures).
 - Added complete application icon management pipeline:
-  - New high-resolution PNG icon (`rnetbench.png`) in `assets/`
-  - Windows executable icon embedding via `build.rs` and `winresource`
-  - Multi-size PNG set generated using `generate_icons.*`
-  - Automatic inclusion of icons in `.deb` packages via `package.metadata.deb`
+    - New high-resolution PNG icon (`rnetbench.png`) in `assets/`
+    - Windows executable icon embedding via `build.rs` and `winresource`
+    - Multi-size PNG set generated using `generate_icons.*`
+    - Automatic inclusion of icons in `.deb` packages via `package.metadata.deb`
 - Updated project layout to support cross-platform asset generation.
 
 ### 🧹 Improved
@@ -28,7 +51,7 @@ and this project adheres to **Semantic Versioning**.
 
 ### 🛠️ Internal
 
-- Added `dev_tools/` submodule with unified ImageMagick utility scripts. 
+- Added `dev_tools/` submodule with unified ImageMagick utility scripts.
 - Updated `.gitignore` to support the new asset workflow.
 
 ---
