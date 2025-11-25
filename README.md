@@ -31,6 +31,23 @@ Even in its early versions, the project focuses on:
 
 ---
 
+## 🆕 News in version v0.1.2
+
+### 🔧 Fixed
+
+- Replaced **OpenSSL (native-tls)** with **Rustls** in `rnetbench-core` to improve portability and eliminate TLS build failures on
+  32-bit Linux (`i686-unknown-linux-gnu`).
+- Removed all system-level OpenSSL dependencies during build and runtime.
+- Stabilized the multi-platform CI pipeline by removing the need for OpenSSL libraries across all targets.
+
+### 🚀 Improved
+
+- Smaller and more secure binaries thanks to Rustls' memory-safe TLS backend.
+- Faster CI builds due to removal of `libssl-dev`, `pkg-config`, and related 32-bit dependencies.
+- Updated README requirements to reflect the TLS backend change.
+
+---
+
 ## 🆕 News in version v0.1.1
 
 Version **v0.1.1** introduces the first complete automation layer for assets, packaging, and CI/CD.
@@ -93,7 +110,7 @@ You will find the executable in:
 
 - Rust 1.75+ (recommended: latest stable)
 - Tokio async runtime
-- OpenSSL / native TLS (via Reqwest)
+- Rustls TLS backend (no OpenSSL required)
 
 ---
 
