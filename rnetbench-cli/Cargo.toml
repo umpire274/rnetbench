@@ -55,7 +55,7 @@ depends = "$auto"
 # Asset installati nel pacchetto .deb
 assets = [
     # Binario
-    ["target/**/release/rnetbench", "usr/bin/", "755"],
+    ["../target/**/release/rnetbench", "usr/bin/", "755"],
     # Documentazione
     ["../README.md", "usr/share/doc/rnetbench/", "644"],
     ["../CHANGELOG.md", "usr/share/doc/rnetbench/", "644"],
