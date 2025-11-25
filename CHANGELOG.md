@@ -7,11 +7,39 @@ and this project adheres to **Semantic Versioning**.
 
 ---
 
+## [0.1.5] — 2025-XX-XX
+
+### 🔧 Changed
+
+- Refactored the entire project structure: removed the previous workspace (`rnetbench-core` + `rnetbench-cli`) and
+  merged all components into a single unified crate.
+- Moved all benchmarking modules (`download`, `upload`, `ping`, `stats`, `model`) into the main `src/` directory.
+- Consolidated the CLI entry point: `main.rs` is now at `src/main.rs`.
+- Updated `Cargo.toml` with a simplified, single-crate configuration including metadata, dependencies, build script, and
+  packaging info.
+- Updated icons and asset layout under the root-level `assets/` directory.
+- Cleaned up outdated workspace configuration and path-based dependencies.
+- Adjusted build scripts and CI workflows to work with the new project layout.
+
+### 🗑️ Removed
+
+- Deleted `rnetbench-core/` and `rnetbench-cli/` directories.
+- Removed the `[workspace]` section from the root `Cargo.toml`.
+- Eliminated path-dependency references previously used for the workspace.
+
+### 🚀 Notes
+
+This refactors significantly simplifies packaging, publishing, CI pipelines, and future release management.  
+It also prepares the project for distribution on crates.io and for cleaner multi-platform builds.
+
+---
+
 ## [0.1.2] - 2025-11-25
 
 ### 🔧 Fixed
 
-- Replaced **OpenSSL (native-tls)** with **Rustls** in `rnetbench-core` to ensure fully portable builds across all targets,
+- Replaced **OpenSSL (native-tls)** with **Rustls** in `rnetbench-core` to ensure fully portable builds across all
+  targets,
   including `i686-unknown-linux-gnu` on GitHub Actions.
 - Removed the need for system OpenSSL libraries during CI builds.
 - Improved reliability of cross-compilation, especially for 32-bit Linux.

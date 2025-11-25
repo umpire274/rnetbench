@@ -826,22 +826,14 @@ dependencies = [
 
 [[package]]
 name = "rnetbench"
-version = "0.0.0"
+version = "0.1.5"
 dependencies = [
  "clap",
- "rnetbench-core",
- "tokio",
- "winresource",
-]
-
-[[package]]
-name = "rnetbench-core"
-version = "0.0.0"
-dependencies = [
  "reqwest",
  "serde",
  "serde_json",
  "tokio",
+ "winresource",
 ]
 
 [[package]]

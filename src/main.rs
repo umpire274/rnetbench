@@ -1,5 +1,5 @@
 use clap::Parser;
-use rnetbench_core::{download::run_download_simple, model::TestConfig};
+use rnetbench::{download::run_download_simple, model::TestConfig};
 
 #[derive(Parser)]
 struct Cli {
