@@ -240,14 +240,15 @@ jobs:
 
       - name: Extract version (for release step)
         id: extract_version
+        shell: bash
         run: |
-          VERSION=$(grep '^version' rnetbench-cli/Cargo.toml | head -n1 | cut -d '"' -f2)
-
+          VERSION=$(grep '^version' Cargo.toml | head -n1 | cut -d '"' -f2)
+          
           if [ -z "$VERSION" ]; then
-            echo "ERROR: version not found in rnetbench-cli/Cargo.toml"
+            echo "ERROR: version not found in root Cargo.toml"
             exit 1
           fi
-
+          
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
