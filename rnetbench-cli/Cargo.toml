@@ -1,0 +1,78 @@
+[package]
+name = "rnetbench"
+version = "0.1.1"
+edition = "2024"
+license = "MIT"
+authors = ["Alessandro Maestri <umpire274@gmail.com>"]
+description = "A modern, cross-platform network benchmarking tool written in Rust. Supports download tests, throughput sampling, and planned upload/jitter features."
+homepage = "https://github.com/umpire274/rNetBench"
+repository = "https://github.com/umpire274/rNetBench"
+
+keywords = [
+    "network",
+    "speedtest",
+    "benchmark",
+    "cli",
+    "bandwidth"
+]
+
+categories = [
+    "command-line-utilities",
+    "network-programming",
+    "simulation"
+]
+
+include = [
+    "src/**/*",
+    "Cargo.toml",
+    "assets/**/*"
+]
+
+# build.rs necessario per includere l’icona su Windows
+build = "build.rs"
+
+[dependencies]
+clap = { version = "4.5.53", features = ["derive"] }
+tokio = { version = "1.48.0", features = ["full"] }
+rnetbench-core = { path = "../rnetbench-core" }
+
+[build-dependencies]
+winresource = "0.1.27"
+
+[package.metadata.winres]
+# Icona per Windows (embed nel .exe)
+Icon = "assets/rnetbench.ico"
+
+[package.metadata.deb]
+maintainer = "Alessandro Maestri <umpire274@gmail.com>"
+section = "utils"
+priority = "optional"
+license-file = ["LICENSE", "0"]
+
+# Dipendenze automatiche (raccomandato per Rust)
+depends = "$auto"
+
+# Asset installati nel pacchetto .deb
+assets = [
+    # Binario
+    ["target/**/release/rnetbench", "usr/bin/", "755"],
+    # Documentazione
+    ["../README.md", "usr/share/doc/rnetbench/", "644"],
+    ["../CHANGELOG.md", "usr/share/doc/rnetbench/", "644"],
+    ["../LICENSE", "usr/share/licenses/rnetbench/", "644"],
+    # Icons
+    ["assets/rnetbench_1024.png", "usr/share/icons/hicolor/1024x1024/apps/rnetbench.png", "644"],
+    ["assets/rnetbench_512.png", "usr/share/icons/hicolor/512x512/apps/rnetbench.png", "644"],
+    ["assets/rnetbench_256.png", "usr/share/icons/hicolor/256x256/apps/rnetbench.png", "644"],
+    ["assets/rnetbench_128.png", "usr/share/icons/hicolor/128x128/apps/rnetbench.png", "644"],
+    ["assets/rnetbench_64.png", "usr/share/icons/hicolor/64x64/apps/rnetbench.png", "644"],
+    ["assets/rnetbench_48.png", "usr/share/icons/hicolor/48x48/apps/rnetbench.png", "644"],
+    ["assets/rnetbench_32.png", "usr/share/icons/hicolor/32x32/apps/rnetbench.png", "644"],
+    ["assets/rnetbench_16.png", "usr/share/icons/hicolor/16x16/apps/rnetbench.png", "644"]
+]
+
+extended-description = """
+rNetBench is a fast, modern, and cross-platform network benchmarking tool written in Rust.
+It provides accurate measurements of download speed (multi-stream planned), upload speed, latency, and jitter — all
+through a clean and extensible architecture.
+"""
