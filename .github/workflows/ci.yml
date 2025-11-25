@@ -114,6 +114,10 @@ jobs:
       # -------------------------
       # Build .deb packages
       # -------------------------
+      - name: Prepare license for cargo-deb
+        if: matrix.deb == true
+        run: cp LICENSE rnetbench-cli/LICENSE
+      
       - name: Build .deb package
         if: matrix.deb == true
         run: |
