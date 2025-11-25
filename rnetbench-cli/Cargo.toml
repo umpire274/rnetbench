@@ -1,12 +1,7 @@
 [package]
 name = "rnetbench"
-version = "0.1.2"
 edition = "2024"
-license = "MIT"
-authors = ["Alessandro Maestri <umpire274@gmail.com>"]
 description = "A modern, cross-platform network benchmarking tool written in Rust. Supports download tests, throughput sampling, and planned upload/jitter features."
-homepage = "https://github.com/umpire274/rNetBench"
-repository = "https://github.com/umpire274/rNetBench"
 
 keywords = [
     "network",
@@ -28,7 +23,7 @@ include = [
     "assets/**/*"
 ]
 
-# build.rs necessario per includere l’icona su Windows
+# Necessario per icona Windows
 build = "build.rs"
 
 [dependencies]
@@ -40,7 +35,6 @@ rnetbench-core = { path = "../rnetbench-core" }
 winresource = "0.1.27"
 
 [package.metadata.winres]
-# Icona per Windows (embed nel .exe)
 Icon = "assets/rnetbench.ico"
 
 [package.metadata.deb]
@@ -49,18 +43,16 @@ section = "utils"
 priority = "optional"
 license-file = ["LICENSE", "0"]
 
-# Dipendenze automatiche (raccomandato per Rust)
 depends = "$auto"
 
-# Asset installati nel pacchetto .deb
 assets = [
-    # Binario
+    # binario
     ["../target/**/release/rnetbench", "usr/bin/", "755"],
-    # Documentazione
+    # documentazione
     ["../README.md", "usr/share/doc/rnetbench/", "644"],
     ["../CHANGELOG.md", "usr/share/doc/rnetbench/", "644"],
     ["../LICENSE", "usr/share/licenses/rnetbench/", "644"],
-    # Icons
+    # icons
     ["assets/rnetbench_1024.png", "usr/share/icons/hicolor/1024x1024/apps/rnetbench.png", "644"],
     ["assets/rnetbench_512.png", "usr/share/icons/hicolor/512x512/apps/rnetbench.png", "644"],
     ["assets/rnetbench_256.png", "usr/share/icons/hicolor/256x256/apps/rnetbench.png", "644"],

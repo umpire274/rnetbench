@@ -1,7 +1,6 @@
 [package]
 name = "rnetbench-core"
 edition = "2024"
-license = "MIT"
 
 [dependencies]
 tokio = { version = "1.48.0", features = ["full"] }

@@ -5,3 +5,13 @@ members = [
 ]
 
 resolver = "2"
+
+[workspace.package]
+name = "rnetbench"
+version = "0.1.2"
+edition = "2024"
+license = "MIT"
+authors = ["Alessandro Maestri <umpire274@gmail.com>"]
+homepage = "https://github.com/umpire274/rNetBench"
+repository = "https://github.com/umpire274/rNetBench"
+readme = "README.md"
