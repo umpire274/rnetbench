@@ -1,9 +1,9 @@
 name: Build, Package and Release
 
 on:
-  workflow_run:
-    workflows: [ "Rust Build & Test" ]
-    types: [ completed ]
+  push:
+    tags:
+      - 'v*'
 
 permissions:
   contents: write
