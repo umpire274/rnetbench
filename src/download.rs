@@ -58,7 +58,13 @@ pub async fn run_download_simple(
 
     let secs = start.elapsed().as_secs_f64().max(0.000_001);
     let mbps_avg = (total_bytes as f64 * 8.0 / 1_000_000.0) / secs;
-    let mbps_peak = samples.iter().map(|s| s.mbps).fold(0.0, f64::max);
+    if samples.is_empty() {
+        samples.push(ThroughputSample {
+            timestamp_ms: (secs * 1000.0) as u64,
+            mbps: mbps_avg,
+        });
+    }
+    let mbps_peak = samples.iter().map(|s| s.mbps).fold(mbps_avg, f64::max);
 
     Ok(DownloadResult {
         mbps_avg,

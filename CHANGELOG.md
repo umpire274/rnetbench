@@ -7,6 +7,45 @@ and this project adheres to **Semantic Versioning**.
 
 ---
 
+## [0.2.0] — 2026-04-27
+
+### 🚀 Added
+
+- **Structured server catalog** (`assets/test_servers.json`): replaces the plain-text `test_servers.txt` with a typed
+  JSON catalog embedded at compile time via `include_str!`.
+- **Automatic server selection**: if `--server` is omitted, the program probes all enabled servers concurrently via HTTP
+  latency measurements and picks one at random among the best `N` (controlled by `--top`, default 3).
+- **`probe_url` field** on each server entry: dedicated lightweight endpoint used for latency probing, independent from
+  the large `download_url` file. Falls back to `download_url` when not set.
+- **`continent` field** on each server entry: enables future region-based filtering.
+- **`--list-servers` flag**: prints the full embedded catalog and exits.
+- **`--top <N>` flag**: controls how many lowest-latency candidates are considered for the random final pick.
+- **`--server` is now optional**: manual override is still supported; automatic selection is used when omitted.
+- **Global server catalog** with 33 enabled entries spanning 6 continents and 7 providers:
+    - **EU** (12): Hetzner ×3, OVHcloud, DataPacket ×3, Virtua.Cloud, Clouvider ×3, Leaseweb
+    - **NA** (10): Cloudflare anycast, Hetzner ×2, Virtua.Cloud, DataPacket ×3, Clouvider ×3
+    - **SA** (1): DataPacket São Paulo
+    - **AS** (7): Hetzner SG, DataPacket ×5 (SG, TYO, SEL, BOM, HKG, DXB), Clouvider SG
+    - **OC** (1): DataPacket Sydney
+    - **AF** (1): DataPacket Johannesburg
+- New data models: `ServerCatalog`, `ServerEntry`, `ServerProbeResult`.
+
+### 🔧 Changed
+
+- `--server` argument changed from required to optional (`Option<String>`).
+- `Downloaded` output now expressed in MB with two decimal places (e.g. `5.36 MB`) instead of raw bytes.
+- `src/config.rs` implemented: loads and filters the embedded server catalog.
+- `src/ping.rs` implemented: concurrent HTTP probing, latency ranking, random selection among top-N candidates.
+- Fixed zero `Peak` in very short tests by inserting a synthetic final sample when no periodic samples were collected.
+- Server catalog moved to `assets/test_servers.json` (previously attempted in `src/`).
+
+### 🗑️ Removed
+
+- Plain-text `test_servers.txt` superseded by the structured JSON catalog (file kept in repo for reference).
+- `ThinkBroadband` server disabled by default (`"enabled": false`) due to HTTP-only endpoint.
+
+---
+
 ## [0.1.5] — 2025-XX-XX
 
 ### 🔧 Changed
@@ -127,9 +166,9 @@ These features are planned for upcoming releases:
 - Multi-stream download engine
 - Upload benchmark
 - Latency and jitter measurements (HTTP or ICMP)
+- Region-based server filtering (`--region eu`, `--region us`, …)
 - Config file (TOML)
 - JSON output mode
 - Local history database
 - Self-hosted benchmark server (`rnetbench-server`)
-- GitHub Actions CI + multi-platform release artifacts
 
