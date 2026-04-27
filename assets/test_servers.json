@@ -1,0 +1,344 @@
+{
+  "servers": [
+    {
+      "id": "hetzner-nbg1",
+      "provider": "Hetzner",
+      "location": "Nuremberg",
+      "country": "DE",
+      "continent": "EU",
+      "download_url": "https://nbg1-speed.hetzner.com/10GB.bin",
+      "probe_url": "https://nbg1-speed.hetzner.com/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "hetzner-fsn1",
+      "provider": "Hetzner",
+      "location": "Falkenstein",
+      "country": "DE",
+      "continent": "EU",
+      "download_url": "https://fsn1-speed.hetzner.com/10GB.bin",
+      "probe_url": "https://fsn1-speed.hetzner.com/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "hetzner-hel1",
+      "provider": "Hetzner",
+      "location": "Helsinki",
+      "country": "FI",
+      "continent": "EU",
+      "download_url": "https://hel1-speed.hetzner.com/10GB.bin",
+      "probe_url": "https://hel1-speed.hetzner.com/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "ovh-roubaix",
+      "provider": "OVHcloud",
+      "location": "Roubaix",
+      "country": "FR",
+      "continent": "EU",
+      "download_url": "https://proof.ovh.net/files/10Gb.dat",
+      "probe_url": "https://proof.ovh.net/files/100Mb.dat",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-amsterdam",
+      "provider": "DataPacket",
+      "location": "Amsterdam",
+      "country": "NL",
+      "continent": "EU",
+      "download_url": "https://ams.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://ams.download.datapacket.com/100mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-athens",
+      "provider": "DataPacket",
+      "location": "Athens",
+      "country": "GR",
+      "continent": "EU",
+      "download_url": "https://ath.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://ath.download.datapacket.com/100mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-paris",
+      "provider": "DataPacket",
+      "location": "Paris",
+      "country": "FR",
+      "continent": "EU",
+      "download_url": "https://par.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://par.download.datapacket.com/100mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "virtua-paris",
+      "provider": "Virtua.Cloud",
+      "location": "Paris",
+      "country": "FR",
+      "continent": "EU",
+      "download_url": "https://ping.par01fr.virtua.cloud/10GB.bin",
+      "probe_url": "https://ping.par01fr.virtua.cloud/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "clouvider-london",
+      "provider": "Clouvider",
+      "location": "London",
+      "country": "GB",
+      "continent": "EU",
+      "download_url": "https://lon.download.clouvider.net/10GB.bin",
+      "probe_url": "https://lon.download.clouvider.net/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "clouvider-frankfurt",
+      "provider": "Clouvider",
+      "location": "Frankfurt",
+      "country": "DE",
+      "continent": "EU",
+      "download_url": "https://fra.download.clouvider.net/10GB.bin",
+      "probe_url": "https://fra.download.clouvider.net/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "clouvider-amsterdam",
+      "provider": "Clouvider",
+      "location": "Amsterdam",
+      "country": "NL",
+      "continent": "EU",
+      "download_url": "https://ams.download.clouvider.net/10GB.bin",
+      "probe_url": "https://ams.download.clouvider.net/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "leaseweb-amsterdam",
+      "provider": "Leaseweb",
+      "location": "Amsterdam",
+      "country": "NL",
+      "continent": "EU",
+      "download_url": "https://mirror.leaseweb.com/speedtest/10gb.bin",
+      "probe_url": "https://mirror.leaseweb.com/speedtest/1mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "thinkbroadband-london",
+      "provider": "ThinkBroadband",
+      "location": "London",
+      "country": "GB",
+      "continent": "EU",
+      "download_url": "http://ipv4.download.thinkbroadband.com/5GB.zip",
+      "probe_url": "http://ipv4.download.thinkbroadband.com/100MB.zip",
+      "enabled": false
+    },
+    {
+      "id": "cloudflare-anycast",
+      "provider": "Cloudflare",
+      "location": "Anycast",
+      "country": "Global",
+      "continent": "NA",
+      "download_url": "https://speed.cloudflare.com/__down?bytes=1000000000",
+      "probe_url": "https://speed.cloudflare.com/__down?bytes=65536",
+      "enabled": true
+    },
+    {
+      "id": "hetzner-ash",
+      "provider": "Hetzner",
+      "location": "Ashburn",
+      "country": "US",
+      "continent": "NA",
+      "download_url": "https://ash-speed.hetzner.com/10GB.bin",
+      "probe_url": "https://ash-speed.hetzner.com/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "hetzner-hil",
+      "provider": "Hetzner",
+      "location": "Hillsboro",
+      "country": "US",
+      "continent": "NA",
+      "download_url": "https://hil-speed.hetzner.com/10GB.bin",
+      "probe_url": "https://hil-speed.hetzner.com/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "virtua-fremont",
+      "provider": "Virtua.Cloud",
+      "location": "Fremont",
+      "country": "US",
+      "continent": "NA",
+      "download_url": "https://ping.fmt02us.virtua.cloud/10GB.bin",
+      "probe_url": "https://ping.fmt02us.virtua.cloud/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-nyc",
+      "provider": "DataPacket",
+      "location": "New York",
+      "country": "US",
+      "continent": "NA",
+      "download_url": "https://nyc.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://nyc.download.datapacket.com/100mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-lax",
+      "provider": "DataPacket",
+      "location": "Los Angeles",
+      "country": "US",
+      "continent": "NA",
+      "download_url": "https://lax.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://lax.download.datapacket.com/100mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-toronto",
+      "provider": "DataPacket",
+      "location": "Toronto",
+      "country": "CA",
+      "continent": "NA",
+      "download_url": "https://tor.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://tor.download.datapacket.com/100mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "clouvider-nyc",
+      "provider": "Clouvider",
+      "location": "New York",
+      "country": "US",
+      "continent": "NA",
+      "download_url": "https://nyc.download.clouvider.net/10GB.bin",
+      "probe_url": "https://nyc.download.clouvider.net/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "clouvider-la",
+      "provider": "Clouvider",
+      "location": "Los Angeles",
+      "country": "US",
+      "continent": "NA",
+      "download_url": "https://la.download.clouvider.net/10GB.bin",
+      "probe_url": "https://la.download.clouvider.net/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "clouvider-atlanta",
+      "provider": "Clouvider",
+      "location": "Atlanta",
+      "country": "US",
+      "continent": "NA",
+      "download_url": "https://atl.download.clouvider.net/10GB.bin",
+      "probe_url": "https://atl.download.clouvider.net/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-saopaulo",
+      "provider": "DataPacket",
+      "location": "Sao Paulo",
+      "country": "BR",
+      "continent": "SA",
+      "download_url": "https://gru.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://gru.download.datapacket.com/100mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "hetzner-sin",
+      "provider": "Hetzner",
+      "location": "Singapore",
+      "country": "SG",
+      "continent": "AS",
+      "download_url": "https://sin-speed.hetzner.com/10GB.bin",
+      "probe_url": "https://sin-speed.hetzner.com/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-singapore",
+      "provider": "DataPacket",
+      "location": "Singapore",
+      "country": "SG",
+      "continent": "AS",
+      "download_url": "https://sin.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://sin.download.datapacket.com/100mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "clouvider-singapore",
+      "provider": "Clouvider",
+      "location": "Singapore",
+      "country": "SG",
+      "continent": "AS",
+      "download_url": "https://sin.download.clouvider.net/10GB.bin",
+      "probe_url": "https://sin.download.clouvider.net/100MB.bin",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-tokyo",
+      "provider": "DataPacket",
+      "location": "Tokyo",
+      "country": "JP",
+      "continent": "AS",
+      "download_url": "https://tyo.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://tyo.download.datapacket.com/100mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-seoul",
+      "provider": "DataPacket",
+      "location": "Seoul",
+      "country": "KR",
+      "continent": "AS",
+      "download_url": "https://sel.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://sel.download.datapacket.com/100mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-mumbai",
+      "provider": "DataPacket",
+      "location": "Mumbai",
+      "country": "IN",
+      "continent": "AS",
+      "download_url": "https://bom.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://bom.download.datapacket.com/100mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-hongkong",
+      "provider": "DataPacket",
+      "location": "Hong Kong",
+      "country": "HK",
+      "continent": "AS",
+      "download_url": "https://hkg.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://hkg.download.datapacket.com/100mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-dubai",
+      "provider": "DataPacket",
+      "location": "Dubai",
+      "country": "AE",
+      "continent": "AS",
+      "download_url": "https://dxb.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://dxb.download.datapacket.com/100mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-sydney",
+      "provider": "DataPacket",
+      "location": "Sydney",
+      "country": "AU",
+      "continent": "OC",
+      "download_url": "https://syd.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://syd.download.datapacket.com/100mb.bin",
+      "enabled": true
+    },
+    {
+      "id": "datapacket-johannesburg",
+      "provider": "DataPacket",
+      "location": "Johannesburg",
+      "country": "ZA",
+      "continent": "AF",
+      "download_url": "https://jnb.download.datapacket.com/10000mb.bin",
+      "probe_url": "https://jnb.download.datapacket.com/100mb.bin",
+      "enabled": true
+    }
+  ]
+}

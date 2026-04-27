@@ -47,6 +47,7 @@ Even in its early versions, the project focuses on:
 ### Implemented
 
 - Single-stream **download benchmark**
+- Built-in structured server catalog with automatic server selection
 - Throughput sampling (periodic)
 - Average & peak Mbps calculation
 - Custom User-Agent & robust HTTP client setup
@@ -92,17 +93,31 @@ You will find the executable in:
 
 ## 🛠 Usage
 
-Basic download test:
+Basic download test with automatic server selection:
 
 ```bash
-rnetbench-cli --server https://speed.hetzner.de/100MB.bin --duration 10
-rnetbench-cli --server https://speed.cloudflare.com/__down?bytes=50000000 --duration 10
+rnetbench --duration 10
+```
+
+Manual server override:
+
+```bash
+rnetbench --server https://speed.hetzner.de/100MB.bin --duration 10
+```
+
+List embedded test servers:
+
+```bash
+rnetbench --list-servers
 ```
 
 Example output:
 
 ```
-Running simple download test against https://speed.cloudflare.com/__down?bytes=50000000 for 10s...
+Probing 13 candidate servers...
+Selected server: Hetzner (Falkenstein, DE) - 24.7 ms
+Download URL: https://fsn1-speed.hetzner.com/10GB.bin
+Running simple download test...
 
 === rNetBench download results ===
 Duration:   10.02 s
@@ -165,7 +180,7 @@ rNetBench/
 
 **v0.4.0**
 
-- Latency & jitter (HTTP + optional ICMP)
+- Latency & jitter (full reporting, HTTP + optional ICMP)
 - CLI improvements
 - JSON output mode
 
